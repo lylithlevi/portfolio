@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Enable smooth scrolling when navigating to sections */
+            scroll-behavior: smooth;
+            background-color: #f9fafb; /* Light background for the whole page */
+        }
+        /* Custom scrollbar for a cleaner aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Color of the scrollbar track */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* Light gray thumb */
+            border-radius: 4px; /* Rounded corners for the thumb */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* Darker color on hover */
+        }
+
+        /* Project Card Hover Effect */
+        .project-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(114, 216, 101, 0.9); /* Dark indigo overlay */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 0.75rem; /* Match card border-radius */
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-card:hover .project-card-overlay {
+            opacity: 1;
+        }
+
+        .project-card-overlay h3 {
+            font-size: 1.5rem; /* Tailwind text-2xl */
+            font-weight: 600; /* Tailwind font-semibold */
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card-overlay p {
+            font-size: 1rem; /* Tailwind text-base */
+            line-height: 1.5; /* Tailwind leading-relaxed */
+        }
+
+        /* Navigation bar initial state (hidden) */
+        .navbar-hidden {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-out;
+        }
+        /* Navigation bar visible state */
+        .navbar-visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar: Fixed at the top, initially hidden, appears on scroll -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 py-4 px-6 md:px-12 rounded-b-lg navbar-hidden">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Name: Clickable to scroll to the hero section -->
+            <a href="#hero" class="text-2xl font-bold text-gray-900 rounded-md p-2 hover:bg-gray-100 transition-colors">Portfolio</a>
+            <!-- Navigation Links: Responsive spacing -->
+            <div class="space-x-4">
+                <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium rounded-md p-2 hover:bg-gray-100">About</a>
+                <a href="#education" class="text-gray-600 hover:text-gray-900 transition-colors font-medium rounded-md p-2 hover:bg-gray-100">Education</a>
+                <a href="#projects" class="text-gray-600 hover:text-gray-900 transition-colors font-medium rounded-md p-2 hover:bg-gray-100">Projects</a>
+                <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors font-medium rounded-md p-2 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+<body>
+    <!-- Projects Section: White background, responsive grid for project cards -->
+    <section id="projects" class="py-20 px-6 md:px-12 bg-white rounded-xl shadow-md mx-auto my-10 max-w-6xl">
+        <div class="container mx-auto max-w-5xl">
+            <!-- Section Title -->
+            <h2 class="text-4xl font-bold text-gray-900 mb-10 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project Card 1: Image, title, description, and a link -->
+                <div class="project-card bg-gray-50 rounded-xl shadow-md overflow-hidden relative group cursor-pointer">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Project+1" alt="Project 1" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title One</h3>
+                        <p class="text-gray-700 mb-4">A brief description of Project One. Click to view details.</p>
+                    </div>
+                    <!-- Overlay for hover effect -->
+                    <div class="project-card-overlay">
+                        <h3>Project Title One</h3>
+                        <p>Food delivery app, school project assignment</p>
+                        <a href="#" class="mt-4 text-white hover:text-indigo-200 font-medium flex items-center space-x-1">
+                            View Details
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-gray-50 rounded-xl shadow-md overflow-hidden relative group cursor-pointer">
+                    <img src="https://placehold.co/600x400/6366f1/ffffff?text=Project+2" alt="Project 2" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Two</h3>
+                        <p class="text-gray-700 mb-4">Description for Project Two. Click to view details.</p>
+                    </div>
+                    <!-- Overlay for hover effect -->
+                    <div class="project-card-overlay">
+                        <h3>Project Title Two</h3>
+                        <p>This project focused on data visualization, utilizing D3.js to create interactive charts from complex datasets. It demonstrates effective data storytelling.</p>
+                        <a href="#" class="mt-4 text-white hover:text-indigo-200 font-medium flex items-center space-x-1">
+                            View Details
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-gray-50 rounded-xl shadow-md overflow-hidden relative group cursor-pointer">
+                    <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Project+3" alt="Project 3" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Three</h3>
+                        <p class="text-gray-700 mb-4">A brief description of Project Three. Click to view details.</p>
+                    </div>
+                    <!-- Overlay for hover effect -->
+                    <div class="project-card-overlay">
+                        <h3>Project Title Three</h3>
+                        <p>This project involved building a mobile-first e-commerce platform, integrating secure payment gateways and a robust backend API with Node.js.</p>
+                        <a href="#" class="mt-4 text-white hover:text-indigo-200 font-medium flex items-center space-x-1">
+                            View Details
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    </style>
+</head>
+<body class="text-gray-800">
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center rounded-t-lg">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="text-sm">&copy; 2024 Your Name. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <!-- Social media links (optional) -->
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                // Scroll to the target section smoothly
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // JavaScript for dynamic navigation bar visibility on scroll
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) { // Show navbar after scrolling 100px down
+                navbar.classList.remove('navbar-hidden');
+                navbar.classList.add('navbar-visible');
+            } else { // Hide navbar when scrolled to the top
+                navbar.classList.remove('navbar-visible');
+                navbar.classList.add('navbar-hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body>
+</html>
